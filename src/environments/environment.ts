@@ -11,7 +11,7 @@ export const environment = {
     projectId: "checklicenses",
     storageBucket: "",
     messagingSenderId: "111676109865",
-    appId: "1:111676109865:web:7388f38f4b2cc16d"
+    appId: "1:111676109865:web:1ec233fde60c3a39"
   }
 };
 

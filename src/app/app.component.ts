@@ -9,7 +9,12 @@ import { Observable } from "rxjs";
 })
 export class AppComponent {
   licensees: Observable<any[]>;
+  booksCollectionRef: any;
+
   constructor(db: AngularFirestore) {
-    this.licensees = db.collection("licensees").valueChanges();
+    //this.booksCollectionRef = db.collection<Licenses>('books', ref => ref.orderBy('order field'));
+    this.licensees = db
+      .collection("licensees", ref => ref.orderBy("expdate"))
+      .valueChanges();
   }
 }

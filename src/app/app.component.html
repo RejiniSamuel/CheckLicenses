@@ -1,15 +1,61 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
 
+<!-- <app-header></app-header> -->
+
+<!-- <div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <MyApp></MyApp>
+      <app-licensee-list-component>
+      </app-licensee-list-component> 
+<app-shopping-list></app-shopping-list>  
 </div>
-<div>
+</div>
+</div> -->
+
+<!-- <router-outlet></router-outlet> -->
+
+<!-- <div>
   <ul>
     <li class="text" *ngFor="let licensee of licensees | async">
-      {{licensee.licFirstName}} {{licensee.licLastName}} {{licensee.licNo}} {{licensee.licExpDate}}
+      {{licensee.name}} {{licensee.licno}} {{licensee.expdate}}
       {{licensee.licStatus}}
     </li>
   </ul>
-</div>
+</div> 
+   <i class="{{licensee.licStatus}} fas fa-circle m-1"></i>
+-->
+<div class='tc f3'>
+  <h2>Licensees</h2>
+
+  <div *ngFor="let licensee of licensees | async">
+
+
+    <div
+      class="flex items-center bg-purple center w-80 o-80  br3 pa1 ma3 grow shadow-5 ba b--black-5 lh-copy measure f6">
+
+      <!--       <div class=" {{licensee.licStatus}}  w-15 fas fa-circle pa2 fa-w-16 fa-3x ">
+      </div>
+ -->
+      <div
+        [ngClass]="(licensee.licStatus=='red')?'licensee.licStatus pa2 w-15 fa fa-bell faa-ring animated fa-2x':'licensee.licStatus w-15 fas fa-circle pa2 fa-w-16 fa-2x'"
+        class="{{licensee.licStatus}}">
+      </div>
+
+
+      <div class="flex-column w-70 ">
+        <div class=" w-100">
+          <p>{{licensee.licno}}</p>
+        </div>
+        <div class=" w-100 ">
+          <p> {{ licensee.name }}</p>
+        </div>
+      </div>
+      <div class=" w-15 center {{licensee.licStatus}}">
+        {{ licensee.expdate }}
+      </div>
+
+
+
+
+    </div>
